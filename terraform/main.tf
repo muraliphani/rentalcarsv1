@@ -46,7 +46,7 @@ locals {
 	  subnet_id                   = "subnet-06733639e38978678"
 	  instance_type               = "t2.micro"
 	  associate_public_ip_address = true
-	  security_groups             = [aws_security_group.tomcat.id]
+	  security_groups             = [aws_security_group.test.id]
 	  key_name                    = local.key_name
 	}
 
