@@ -11,8 +11,8 @@ locals {
 	}
 
 
-	resource "aws_security_group" "tomcat" {
-	  name   = "tomcat_access"
+	resource "aws_security_group" "test" {
+	  name   = "test_access"
 	  vpc_id = local.vpc_id
 
 
