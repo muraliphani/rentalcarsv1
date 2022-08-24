@@ -1,7 +1,7 @@
 node(){
 
    stage("Git Checkout"){
-   checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/muraliphani/RentalCars.git']]])
+   checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/muraliphani/rentalcarsv1.git']]])
 
    }
 
