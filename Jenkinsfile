@@ -3,11 +3,13 @@ node(){
    stage("Git Checkout"){
    //checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/muraliphani/rentalcarsv1.git']]])
    checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'repo3git', url: 'https://github.com/muraliphani/rentalcarsv1.git']]])
+      sh "pwd"
+      sh "ls -l"
    }
 
-   stage("Maven Build"){
-   sh "mvn package"
-   }
+   //stage("Maven Build"){
+   //sh "mvn package"
+   //}
 
    
   // stage("upload to nexus"){
@@ -16,9 +18,9 @@ node(){
 
   // }
    
-   stage("deploy to tomcat"){
-   sshagent(['ec2instance']) {
-    sh "scp -o StrictHostKeyChecking=no target/RentalCars.war ubuntu@35.89.176.81:/opt/apache/webapps"
-}
-   }
+   //stage("deploy to tomcat"){
+   //sshagent(['ec2instance']) {
+   // sh "scp -o StrictHostKeyChecking=no target/RentalCars.war ubuntu@35.89.176.81:/opt/apache/webapps"
+//}
+ //  }
 }
