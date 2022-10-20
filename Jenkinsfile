@@ -5,6 +5,7 @@ node(){
    checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'repo3git', url: 'https://github.com/muraliphani/rentalcarsv1.git']]])
       sh "pwd"
       sh "ls -l"
+      sh "ls"
    }
 
    //stage("Maven Build"){
