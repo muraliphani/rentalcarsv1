@@ -7,4 +7,10 @@ node(){
    stage("Maven Build"){
    sh "mvn package"
    } 
+   stage("sonarqube"){
+       scannerHome = tool 'SonarQubeScanner'
+       withSonarQubeEnv('sonarqube') {
+            sh "${scannerHome}/bin/sonar-scanner"
+        }
+    }
 }
