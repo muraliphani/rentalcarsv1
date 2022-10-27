@@ -20,4 +20,9 @@ node(){
    credentialsId: 'nexusrepologin', groupId: 'prod', nexusUrl: '35.174.204.118:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'devtest1', version: '$BUILD_ID'
   
   }
+   
+    stage("Deploy to tomcat"){
+  sshagent(['tomcatpem']) {
+    sh "scp -o StrictHostKeyChecking=no target/RentalCars.war ec2-user@34.235.88.114:/opt/apache-tomcat-10.0.27/webapps"
+}
 }
