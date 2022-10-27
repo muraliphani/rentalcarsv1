@@ -13,9 +13,6 @@ node(){
        withSonarQubeEnv('sonarqube') {
             sh "${scannerHome}/bin/sonar-scanner"
         }
-       timeout(time: 10, unit: 'MINUTES') {
-            waitForQualityGate abortPipeline: true
-        }
   
  }
    stage("Upload to nexus"){
