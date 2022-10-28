@@ -25,8 +25,11 @@ node(){
   //}
    
    stage("Deploy to tomcat"){
-  sshagent(['tomcatpem']) {
-    sh "scp -o StrictHostKeyChecking=no target/RentalCars.war ec2-user@54.163.219.141:/opt/apache-tomcat-10.0.27/webapps"
-}
-}
+   sshPublisher(publishers: [sshPublisherDesc(configName: 'tomcat', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: 'target/RentalCars.war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+   }
+  // stage("Deploy to tomcat"){
+ // sshagent(['tomcatpem']) {
+ //   sh "scp -o StrictHostKeyChecking=no target/RentalCars.war ec2-user@54.163.219.141:/opt/apache-tomcat-10.0.27/webapps"
+//}
+//}
 }
