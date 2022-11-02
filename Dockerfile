@@ -1,6 +1,6 @@
 FROM openjdk:8 AS BUILD_IMAGE
 RUN apt update && apt install maven -y
-RUN git clone https://github.com/muraliphani/RentalCars.git
+RUN git clone https://github.com/muraliphani/rentalcarsv1.git
 RUN cd RentalCars && mvn install
 
 FROM tomcat:8-jre11
